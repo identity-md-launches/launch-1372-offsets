@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "OffsetsToken",
+    "name": "Offsets",
+    "symbol": "OFFSETS",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0xff3e8d9ba776662ca6ed1420ee366afb436d2684"
+  },
+  "notes": "OffsetsToken (src/OffsetsToken.sol) is a plain, fixed-supply EIP-20 token: name Offsets, symbol OFFSETS, 18 decimals. Its constructor takes no arguments and mints the entire supply of 1,000,000,000 OFFSETS (1000000000000000000000000000 minor units) once to msg.sender, which at launch is the ProjectFactory; totalSupply() returns that compile-time constant and nothing can mint or burn afterwards. Transfers are standard with no fee, burn, tax, exemption list, pause, blocklist, owner or upgrade path, so the factory's transfer to the MerkleDistributor, the pool seed through the PoolManager, the remainder forward and every trade move exactly the amount sent. The contract is self-contained (no inherited library, no delegatecall, no selfdestruct) and its constructor makes no external calls. There are no application contracts. Pool and economics are the launch's own: the pool pairs with IMD at the fee and tick spacing above, and the deployer derives the opening price from economics.initialMarketCapWei and the token supply; initialPrice is provenance only."
+}
